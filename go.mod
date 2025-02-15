@@ -1,4 +1,4 @@
-module Dnot
+module github.com/tejaromalius/dnot
 
 go 1.24.0
 
