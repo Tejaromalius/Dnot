@@ -18,21 +18,19 @@ const (
 	defaultWidth = 40
 )
 
-var (
-	styles = struct {
-		title        lipgloss.Style
-		item         lipgloss.Style
-		selectedItem lipgloss.Style
-		pagination   lipgloss.Style
-		help         lipgloss.Style
-	}{
-		title:        lipgloss.NewStyle().MarginLeft(2).Bold(true).Foreground(lipgloss.Color("#FAFAFA")),
-		item:         lipgloss.NewStyle().PaddingLeft(4),
-		selectedItem: lipgloss.NewStyle().PaddingLeft(2).Foreground(lipgloss.Color("170")).Bold(true),
-		pagination:   list.DefaultStyles().PaginationStyle.PaddingLeft(4),
-		help:         list.DefaultStyles().HelpStyle.PaddingLeft(4).PaddingBottom(1),
-	}
-)
+var styles = struct {
+	title        lipgloss.Style
+	item         lipgloss.Style
+	selectedItem lipgloss.Style
+	pagination   lipgloss.Style
+	help         lipgloss.Style
+}{
+	title:        lipgloss.NewStyle().MarginLeft(2).Bold(true).Foreground(lipgloss.Color("#FAFAFA")),
+	item:         lipgloss.NewStyle().PaddingLeft(4),
+	selectedItem: lipgloss.NewStyle().PaddingLeft(2).Foreground(lipgloss.Color("170")).Bold(true),
+	pagination:   list.DefaultStyles().PaginationStyle.PaddingLeft(4),
+	help:         list.DefaultStyles().HelpStyle.PaddingLeft(4).PaddingBottom(1),
+}
 
 type item struct {
 	path string
@@ -50,7 +48,6 @@ func (d csprojDelegate) Update(_ tea.Msg, _ *list.Model) tea.Cmd { return nil }
 func (d csprojDelegate) Render(w io.Writer, m list.Model, index int, listItem list.Item) {
 	i, ok := listItem.(item)
 	if !ok {
-
 		fmt.Fprintf(os.Stderr, "ERROR: Invalid list item type: %T\n", listItem)
 		return
 	}
@@ -105,7 +102,6 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 }
 
 func (m model) View() string {
-
 	if m.err != nil {
 		return fmt.Sprintf("Error: %v\n", m.err)
 	}
@@ -180,7 +176,6 @@ func main() {
 			os.Exit(1)
 		}
 	} else if ok && m.err != nil {
-
 		os.Exit(1)
 	}
 }

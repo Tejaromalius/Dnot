@@ -62,4 +62,4 @@ Contributions are welcome!  If you find a bug or have a feature request, please 
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](license.txt) file for details.
